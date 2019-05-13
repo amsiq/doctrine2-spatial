@@ -82,7 +82,8 @@ class Point extends AbstractPoint implements GeographyInterface
             throw new InvalidValueException($e->getMessage(), $e->getCode(), $e->getPrevious());
         }
 
-        if ($y < -90 || $y > 90) {
+        // enable use of longitude as Y parameter
+        if ($y < -180 || $y > 180) {
             throw new InvalidValueException(sprintf('Invalid latitude value "%s", must be in range -90 to 90.', $y));
         }
 
